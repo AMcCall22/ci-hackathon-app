@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.view_all_teams, name="view_all_teams"),
+    path("", views.view_all_teams, name="teams"),
 ]
 

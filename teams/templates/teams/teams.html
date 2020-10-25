@@ -1,11 +1,26 @@
-<p>{{ teams }}</p>
+{% extends "base.html" %}
+{% load static %}
 
-<!-- {% block content %}
-<div class="row">
-	{% for display_name in HackTeam %}
-	<div class="col text-center mt-3">
-		<h2 class="logo-font">Teams/h2>
-	</div>
+{% block content %}
+
+{% for hackathons in hackathons %}
+<div class="col-12 text-center mb-3">
+	<h1>{{ hackathons }}</h1>
 	{% endfor %}
+	<hr class="divider-orange w-25 mt-4 d">
 </div>
-{% endblock %} -->
+{% for teams in teams %}
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+	<div class="card-header">{{ teams }}</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				{% for participants in participants %}
+				<th scope="col">{{ participants }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+	</table>
+</div>
+{% endfor %}
+{% endblock %}
