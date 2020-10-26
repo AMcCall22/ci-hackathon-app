@@ -2,28 +2,31 @@
 {% load static %}
 {% block content %}
 {% for hackathon in hackathon %}
-<div class="col-12 text-center mb-3">
-	<h1>{{ hackathon }}</h1>
-	{% endfor %}
-	<hr class="divider-orange w-25 mt-4 d">
-</div>
-{% for teams in teams %}
-<div class="card border-dark mb-3" style="max-width: 18rem;">
-	<div class="card-header">{{ teams.team_name }}</div>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<div>{{ teams.team_description }}</div>
-                <div>{{ teams.image_url }}</div>
-                <div>{{ teams.team_members }}</div>
-
-			</tr>
-
-		</thead>
-
-	</table>
-
+<div class="row">
+	<div class="col-12 text-center mb-3">
+		<h1>{{ hackathon }}</h1>
+		{% endfor %}
+		<hr class="divider-orange w-25 mt-4 d">
+	</div>
 </div>
 
+<div class="row d-flex justify-content-center">
+	{% for teams in teams %}
+<div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+	<div class="card border-dark mb-3" style="max-width: 18rem;">
+		<div class="card-header">{{ teams.team_name }}</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<div>{{ teams.team_description }}</div>
+					<div>{{ teams.image_url }}</div>
+					<div>{{ teams.team_members }}</div>
+				</tr>
+			</thead>
+		</table>
+</div>
+</div>
 {% endfor %}
+</div>
+
 {% endblock %}
