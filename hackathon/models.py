@@ -105,7 +105,7 @@ class HackTeam(models.Model):
                                    on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.display_name, self.participants
+        return self.display_name
 
 
 class HackProject(models.Model):

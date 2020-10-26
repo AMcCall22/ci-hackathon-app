@@ -1,15 +1,33 @@
 from django.db import models
 from hackathon.models import HackTeam, Hackathon
-from accounts.models import Profile
 from django.contrib.auth.models import User
 
-class Teams(models.Model):
-    """Model that shows Hackathon Name, Team Names, Participants and Slack IDs"""
-    hackathon_display_name = Hackathon.display_name
-    team_display_name = HackTeam.display_name
 
-    def __str__(self):
-            return self.display_name
+class Team_Members(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Team_Members"
+
+    name = models.CharField(max_length=30, null=True, blank=True)
+
+def __str__(self):
+        return self.name
+
+
+class Teams(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Teams"
+
+    team_name = models.CharField(max_length=254, null=True, blank=True)
+    team_description = models.CharField(max_length=254, null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    team_members = models.ManyToManyField(Team_Members)
+
+def __str__(self):
+        return self.team_name
+
+            
 
 
 

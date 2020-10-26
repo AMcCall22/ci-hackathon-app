@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     # custom apps
     "accounts",
     "hackathon",
-    "teams"
+    "teams",
     "home",
     "profiles",
     "resources",
