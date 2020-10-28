@@ -11,12 +11,13 @@ def view_all_teams(request):
 
     teams = Teams.objects.all()
     hackathon = Hackathon.objects.all()
-    
-    
+    team_members = Team_Members.objects.all()
+
+        
     context = {
         'teams': teams,
         'hackathon': hackathon,
-        'team_members': teams,                        
+        'team_members': team_members,                        
     }
 
     return render(request ,'teams/teams.html', context)
