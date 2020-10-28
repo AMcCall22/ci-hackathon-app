@@ -3,32 +3,27 @@
 {% block content %}
 {% for hackathon in hackathon %}
 <div class="row">
-	<div class="col-12 text-center mb-3">
-		<h1>{{ hackathon }}</h1>
+	<div class="col-12 text-center mb-3 ">
+		<h2 class="p-orange text-center mb-4">{{ hackathon }}</h2>
 		{% endfor %}
-		<hr class="divider-orange w-25 mt-4 d">
+
 	</div>
 </div>
-
-<div class="row d-flex justify-content-center">
+<div class="card-group">
+<div class="row d-flex justify-content-center card-body">
 	{% for teams in teams %}
 	<div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-		<div class="card border-dark mb-3" style="max-width: 18rem;">
-			<div class="card-header">{{ teams.team_name }}</div>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<div>{{ teams.team_description }}</div>
-						<div>{{ teams.image_url }}</div>
-						{% for team_members in team_members %}
-						<div>{{ team_members }}</div>
-						{% endfor %}
-					</tr>
-				</thead>
-			</table>
+		<div class="card border-dark mb-3 text-center">
+			<h5 class="p-orange card-title">{{ teams.team_name }}</h5>
+			<p class=text-muted">{{ teams.team_description }}<p>
+					<span>{{ teams.image_url }}</span>
+					<h6 class="p-orange text-center mb-4">Participants</h6>
+					{% for team_members in team_members %}
+					<p class="text-left">{{ team_members }}</p>
+					{% endfor %}
 		</div>
 	</div>
 	{% endfor %}
 </div>
-
+</div>
 {% endblock %}
