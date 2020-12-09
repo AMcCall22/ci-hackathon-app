@@ -135,7 +135,7 @@ footer ul li a {
     color: var(--s-grey);
 }
 
-.fab {
+.fab-footer {
     font-size: 200%;
     margin: 0 20px;
     color: var(--s-grey);
