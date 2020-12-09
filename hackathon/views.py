@@ -286,3 +286,14 @@ def enroll_toggle(request):
 
     else:
         return HttpResponse(status=403)
+
+@login_required
+def view_all_teams(request):
+    """ A view to show all hackathon teams"""
+    """ Utilises the already created HackTeam model"""
+
+    teams = HackTeam.objects.all()
+    context = {
+        'teams': teams,                
+    }
+    return render(request ,'hackathon/teams.html', context)
