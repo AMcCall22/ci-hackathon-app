@@ -7,7 +7,8 @@ from .views import (
     HackathonDetailView,
     enroll_toggle,
     judging,
-    check_projects_scores
+    check_projects_scores,
+    view_all_teams
 )
 
 urlpatterns = [
@@ -19,6 +20,7 @@ urlpatterns = [
     path("<int:hackathon_id>/delete_hackathon", delete_hackathon, name="delete_hackathon"),
     path('<int:pk>/',
          HackathonDetailView.as_view(), name='hackathon_detail'),
-    path('enroll', enroll_toggle, name='enroll_toggle')
+    path('enroll', enroll_toggle, name='enroll_toggle'),
+    path('teams/', view_all_teams, name='teams'),
 ]
 
